@@ -215,47 +215,7 @@ The notebook's feature-importance analysis identifies `feature_7` as the leading
 
 The notebook records the following environment versions during execution: Pandas 2.2.3, NumPy 2.1.3, and Scikit-learn 1.6.1.
 
-## 9. Setup and Execution
-
-### Prerequisites
-
-- Python installed.
-- Access to the MySQL database containing the three project tables.
-- Database permissions to read `Cust_Account`, `Cust_Enquiry`, and `Cust_Demographics`.
-
-### Install dependencies
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn sqlalchemy pymysql python-dotenv jupyter
-```
-
-### Configure database access
-
-Create a local `.env` file in the project working directory with your own database connection details:
-
-```env
-DB_HOST=your_host
-DB_PORT=3306
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_NAME=your_database
-```
-
-The notebook loads these variables with `python-dotenv` and connects to MySQL through SQLAlchemy/PyMySQL.
-
-> **Security:** Never commit your real `.env` file, database password, credentials, or private customer-level data to a public repository. Keep `.env` out of Git (for example, add it to `.gitignore`). Only publish datasets if you have explicit permission and have confirmed that they contain no confidential or personally identifiable information.
-
-### Run the notebook
-
-Start Jupyter Notebook:
-
-```bash
-jupyter notebook
-```
-
-Open `PR-0015_Credit_Risk_Prediction.ipynb` and run the cells in order. The initial database extraction section reads the three MySQL tables and saves local CSV copies under `data/raw/` before loading them for analysis.
-
-## 10. Suggested Repository Structure
+## 9. Suggested Repository Structure
 
 ```text
 PR-0015_Credit_Risk_Prediction/
@@ -271,7 +231,7 @@ PR-0015_Credit_Risk_Prediction/
 
 The `.env` file is intentionally not shown in this structure because it should remain local and untracked.
 
-## 11. Conclusion
+## 10. Conclusion
 
 This project builds a customer-level credit-risk modelling workflow by combining demographic/application information with aggregated account, payment-history, and enquiry behaviour. The final Random Forest candidate achieves a test Gini of **38.49**, slightly exceeding the project benchmark of **37.90**.
 
